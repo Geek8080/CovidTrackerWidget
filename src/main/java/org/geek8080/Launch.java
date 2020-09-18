@@ -1,6 +1,8 @@
 package org.geek8080;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -12,7 +14,9 @@ public class Launch extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Scene scene = new Scene(new StackPane(new Label("Hello JavaFX 14")), 200, 200);
+		Parent root = FXMLLoader.load(getClass().getResource("/org/geek8080/gui/widget/Widget.fxml"));
+
+		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
