@@ -1,4 +1,4 @@
-package org.geek8080;
+package org.geek8080.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +31,7 @@ public class Launch extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("/org/geek8080/gui/widget/Widget.fxml"));
 		Scene scene = new Scene(root);
 		secondaryStage.setScene(scene);
+		secondaryStage.setOpacity(0.8);
 		secondaryStage.show();
 
 		// Right top alignment
@@ -47,5 +48,9 @@ public class Launch extends Application {
 			secondaryStage.setX(event.getScreenX() + xOffset);
 			secondaryStage.setY(event.getScreenY() + yOffset);
 		});
+	}
+
+	public static void main(String[] args) {
+		launch(args);
 	}
 }
