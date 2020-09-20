@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.concurrent.CompletableFuture;
 
 public class DataProviderService {
-	public CovidDataModel getData(String CountryName){
+	public CovidDataModel getData(String countryName){
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl("https://coronavirus-19-api.herokuapp.com/")
 				.addConverterFactory(GsonConverterFactory.create())
@@ -34,7 +34,7 @@ public class DataProviderService {
 		});
 
 		CompletableFuture<CountryData> callback2 = new CompletableFuture<>();
-		covidAPI.getCountryData("India").enqueue(new Callback<CountryData>() {
+		covidAPI.getCountryData(countryName).enqueue(new Callback<CountryData>() {
 			@Override
 			public void onResponse(Call<CountryData> call, Response<CountryData> response) {
 				callback2.complete(response.body());
